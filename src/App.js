@@ -4,15 +4,15 @@ import ItemCount from "./components/ItemCount/ItemCount";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Navbar />
       <ItemListContainer />
       <ItemCount
         initial={1}
         stock={10}
-        onAdd={(contador) => console.log("Cantidad Agregada", contador)}
+        onAdd={(cantidad) => console.log("Cantidad Agregada " + cantidad)}
       />
-    </>
+    </div>
   );
 }
 

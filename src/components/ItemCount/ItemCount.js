@@ -11,7 +11,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   const decrement = () => {
-    if (cantidad < 1) {
+    if (cantidad > 1) {
       SetCantidad(cantidad - 1);
     }
   };
@@ -19,20 +19,20 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   return (
     <div className="Counter">
       <div className="Controls">
-        <button className="Button" onClick={decrement}>
+        <button className="btn btn-outline-success" onClick={decrement}>
           {" "}
           -{" "}
         </button>
-        <h4 className="Number">{contador}</h4>
-        <button className="Button" onClick={incremet}>
+        <h4 className="Number">{cantidad}</h4>
+        <button className="btn btn-outline-success" onClick={incremet}>
           {" "}
           +{" "}
         </button>
       </div>
       <div>
         <button
-          className="Button"
-          onClick={() => onAdd(contador)}
+          className="btn btn-primary"
+          onClick={() => onAdd(cantidad)}
           disabled={!stock}
         >
           Agregar al carrito

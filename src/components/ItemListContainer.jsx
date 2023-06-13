@@ -1,10 +1,24 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import { getProducts } from "./AsyncMock";
+import ItemList from "./ItemList/ItemList";
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    getProducts()
+      .then((response) => {
+        setProducts(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
-    <h1 className="d-inline-block p-2 align-text-center">
-      Bienvenidos a mi pagina
-    </h1>
+    <div>
+      <h1>{greeting}</h1>
+      <ItemList products={products} />
+    </div>
   );
 };
 
