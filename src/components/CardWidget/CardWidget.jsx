@@ -9,4 +9,4 @@ const CardWidget = () => {
   );
 };
 
-export { CardWidget };
+export default CardWidget;
